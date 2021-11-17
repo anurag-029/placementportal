@@ -1,4 +1,6 @@
 <!--users/templates/users/dashboard.html-->
+{% extends 'test.html' %}
+{% load static %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -8,90 +10,464 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student Dashboard</title>
 </head>
-{% extends 'base.html' %}
+
 {% block content %}
 {% if user.is_authenticated %}
 {% if user.user_type == 1 %}
 
-Hello Student, {{ user.username|default:'Guest' }}!
-<br>
-<a href="/UpdateProfile">Student Profile Update</a>
-<br>
-<a href="/Dashboard">Student Dashboard</a>
-<br>
-<a href="/AppliedPosition">Applied Positions With Status</a>
-<br>
-<a href="/ApplyPosition">Apply to Positions</a>
-<br>
-<a href="/Offers">View Offers</a>
-<br>
+<!--Hello Student, {{ user.username|default:'Guest' }}!-->
+<div class="sidebar">
+    <div class="logo-details">
+      <i class='bx bxl-c-plus-plus icon'></i>
+        <div class="logo_name">Student Dasboard</div>
+        <i class='bx bx-menu' id="btn" ></i>
+    </div>
+    <ul class="nav-list">
+      <li>
+          <i class='bx bx-search' ></i>
+         <input type="text" placeholder="Search...">
+         <span class="tooltip">Search</span>
+      </li>
+      <li>
+        <a href="/UpdateProfile">
+          <i class='bx bx-grid-alt'></i>
+          <span class="links_name">Update student profile</span>
+        </a>
+         <span class="tooltip">Update student profile</span>
+      </li>
+      <li>
+       <a href="/view_position">
+         <i class='bx bx-user' ></i>
+         <span class="links_name">View Position</span>
+       </a>
+       <span class="tooltip">View Position</span>
+     </li>
+     <li>
+       <a href="/AppliedPosition">
+         <i class='bx bx-chat' ></i>
+         <span class="links_name">Applied Companies</span>
+       </a>
+       <span class="tooltip">Applied Companies</span>
+     </li>
+     <li>
+       <a href="/ApplyPosition">
+         <i class='bx bx-pie-chart-alt-2' ></i>
+         <span class="links_name">Apply Position</span>
+       </a>
+       <span class="tooltip">Apply Position</span>
+     </li>
+     <li>
+       <a href="/offers">
+         <i class='bx bx-folder' ></i>
+         <span class="links_name">offers</span>
+       </a>
+       <span class="tooltip">offers</span>
+     </li>
+     <li>
+       <a href="/logout">
+         <i class='bx bx-cart-alt' ></i>
+         <span class="links_name">Logout</span>
+       </a>
+       <span class="tooltip">Logout</span>
+     </li>
+     <li class="profile">
+         <div class="profile-details">
+           <img src="profile.jpg" alt="profileImg">
+           <div class="name_job">
+             <div class="name"> {{ user.username|default:'Guest' }}</div>
+             <div class="job">Student</div>
+           </div>
+         </div>
+         <i class='bx bx-log-out' id="log_out" ></i>
+     </li>
+    </ul>
+  </div>
+  <section class="home-section">
+      <div class="text">Dashboard</div>
+  </section>
+  
+  <script>
+    let sidebar = document.querySelector(".sidebar");
+    let closeBtn = document.querySelector("#btn");
+    let searchBtn = document.querySelector(".bx-search");
+  
+    closeBtn.addEventListener("click", ()=>{
+      sidebar.classList.toggle("open");
+      menuBtnChange();//calling the function(optional)
+    });
+  
+    searchBtn.addEventListener("click", ()=>{ // Sidebar open when you click on the search iocn
+      sidebar.classList.toggle("open");
+      menuBtnChange(); //calling the function(optional)
+    });
+  
+    // following are the code to change sidebar button(optional)
+    function menuBtnChange() {
+     if(sidebar.classList.contains("open")){
+       closeBtn.classList.replace("bx-menu", "bx-menu-alt-right");//replacing the iocns class
+     }else {
+       closeBtn.classList.replace("bx-menu-alt-right","bx-menu");//replacing the iocns class
+     }
+    }
+    </script>
 {% endif %}
 {% if user.user_type == 4 %}
 
 Hello Mentor, {{ user.username|default:'Guest' }}!
 
-<br>
-<a href="/Dashboard">Dashboard</a>
-<br>
-<a href="/AssignMentor">Add Students /Assign Student , to you</a>
-<br>
-<a href="/StudentList">View List Of Students With Button to Detailed View</a>
-<br>
-<a href="/Dashboard">Export Students Data as CSV</a>
-<br>
-<a href="/verifyStu">Verify Students</a>
-<br>
+<div class="sidebar">
+    <div class="logo-details">
+      <i class='bx bxl-c-plus-plus icon'></i>
+        <div class="logo_name">Student Dasboard</div>
+        <i class='bx bx-menu' id="btn" ></i>
+    </div>
+    <ul class="nav-list">
+      <li>
+          <i class='bx bx-search' ></i>
+         <input type="text" placeholder="Search...">
+         <span class="tooltip">Search</span>
+      </li>
+      <li>
+        <a href="/Dashboard">
+          <i class='bx bx-grid-alt'></i>
+          <span class="links_name">Dashboard</span>
+        </a>
+         <span class="tooltip">Dashboard</span>
+      </li>
+      <li>
+       <a href="/AssignMentor">
+         <i class='bx bx-user' ></i>
+         <span class="links_name">Assign Mentor</span>
+       </a>
+       <span class="tooltip">Assign Mentor</span>
+     </li>
+     <li>
+       <a href="/StudentList">
+         <i class='bx bx-chat' ></i>
+         <span class="links_name">View List of Students</span>
+       </a>
+       <span class="tooltip">View List of Student</span>
+     </li>
+     <li>
+       <a href="/Dashboard">
+         <i class='bx bx-pie-chart-alt-2' ></i>
+         <span class="links_name">Export student Data as CSV</span>
+       </a>
+       <span class="tooltip">Export student Data as CSV</span>
+     </li>
+     <li>
+       <a href="/verifyStud">
+         <i class='bx bx-folder' ></i>
+         <span class="links_name">Verify student</span>
+       </a>
+       <span class="tooltip">Verify student</span>
+     </li>
+     <li>
+       <a href="/logout">
+         <i class='bx bx-cart-alt' ></i>
+         <span class="links_name">Logout</span>
+       </a>
+       <span class="tooltip">Logout</span>
+     </li>
+     <li class="profile">
+         <div class="profile-details">
+           <img src="profile.jpg" alt="profileImg">
+           <div class="name_job">
+             <div class="name">Anurag</div>
+             <div class="job">Student</div>
+           </div>
+         </div>
+         <i class='bx bx-log-out' id="log_out" ></i>
+     </li>
+    </ul>
+  </div>
+  <section class="home-section">
+      <div class="text">Dashboard</div>
+  </section>
+  
+  <script>
+    let sidebar = document.querySelector(".sidebar");
+    let closeBtn = document.querySelector("#btn");
+    let searchBtn = document.querySelector(".bx-search");
+  
+    closeBtn.addEventListener("click", ()=>{
+      sidebar.classList.toggle("open");
+      menuBtnChange();//calling the function(optional)
+    });
+  
+    searchBtn.addEventListener("click", ()=>{ // Sidebar open when you click on the search iocn
+      sidebar.classList.toggle("open");
+      menuBtnChange(); //calling the function(optional)
+    });
+  
+    // following are the code to change sidebar button(optional)
+    function menuBtnChange() {
+     if(sidebar.classList.contains("open")){
+       closeBtn.classList.replace("bx-menu", "bx-menu-alt-right");//replacing the iocns class
+     }else {
+       closeBtn.classList.replace("bx-menu-alt-right","bx-menu");//replacing the iocns class
+     }
+    }
+    </script>
+
 {% endif %}
 {% if user.user_type == 3 %}
 
 Hello Company, {{ user.username|default:'Guest' }}!
 
-<br>
-<a href="/Dashboard">Dashboard</a>
-<br>
-<a href="/Position/create">Create Position</a>
-<br>
-<a href="/Position">View Positions Already Created</a>
-<br>
-<a href="/Offer/create">Create Offer</a>
-<br>
-<a href="/Offer">View Offers Created By Company</a>
-<br>
-<a href="/assignoffer">Assign Created Offer to Selected Students</a>
-<br>
-<a href="/UpdateAppliedStuStatus">Update Student Status </a>
-<br>
-<a href="/Students">View Student who Applied </a>
-<br>
+<div class="sidebar">
+    <div class="logo-details">
+      <i class='bx bxl-c-plus-plus icon'></i>
+        <div class="logo_name">Student Dasboard</div>
+        <i class='bx bx-menu' id="btn" ></i>
+    </div>
+    <ul class="nav-list">
+      <li>
+          <i class='bx bx-search' ></i>
+         <input type="text" placeholder="Search...">
+         <span class="tooltip">Search</span>
+      </li>
+      <li>
+        <a href="/Dashboard">
+          <i class='bx bx-grid-alt'></i>
+          <span class="links_name">Dashboard</span>
+        </a>
+         <span class="tooltip">Dashboard</span>
+      </li>
+      <li>
+       <a href="/Position/create">
+         <i class='bx bx-user' ></i>
+         <span class="links_name">Create Position</span>
+       </a>
+       <span class="tooltip">Create Position</span>
+     </li>
+     <li>
+       <a href="/Position">
+         <i class='bx bx-chat' ></i>
+         <span class="links_name">View Position Already</span>
+       </a>
+       <span class="tooltip">View Position Already</span>
+     </li>
+     <li>
+       <a href="/offer/create">
+         <i class='bx bx-pie-chart-alt-2' ></i>
+         <span class="links_name">Create offer</span>
+       </a>
+       <span class="tooltip">Create offer</span>
+     </li>
+     <li>
+        <li>
+            <a href="/Offer">
+              <i class='bx bx-folder' ></i>
+              <span class="links_name">View offers created By Company</span>
+            </a>
+            <span class="tooltip">View offers created By Company</span>
+          </li>
+         <li>
+       <a href="/assignoffer">
+         <i class='bx bx-folder' ></i>
+         <span class="links_name">Assign Created offer</span>
+       </a>
+       <span class="tooltip">Assign Created offer</span>
+     </li>
+     <li>
+        <a href="/UpdateAppliedStatus">
+          <i class='bx bx-folder' ></i>
+          <span class="links_name">Update student list</span>
+        </a>
+        <span class="tooltip">Update student list</span>
+      </li>
+      <li>
+        <a href="/Students">
+          <i class='bx bx-folder' ></i>
+          <span class="links_name">View student who applies</span>
+        </a>
+        <span class="tooltip">Assign Created offer</span>
+      </li>
+     <li>
+       <a href="/logout">
+         <i class='bx bx-cart-alt' ></i>
+         <span class="links_name">Logout</span>
+       </a>
+       <span class="tooltip">Logout</span>
+     </li>
+     <li class="profile">
+         <div class="profile-details">
+           <img src="profile.jpg" alt="profileImg">
+           <div class="name_job">
+             <div class="name">Anurag</div>
+             <div class="job">Student</div>
+           </div>
+         </div>
+         <i class='bx bx-log-out' id="log_out" ></i>
+     </li>
+    </ul>
+  </div>
+  <section class="home-section">
+      <div class="text">Dashboard</div>
+  </section>
+  
+  <script>
+    let sidebar = document.querySelector(".sidebar");
+    let closeBtn = document.querySelector("#btn");
+    let searchBtn = document.querySelector(".bx-search");
+  
+    closeBtn.addEventListener("click", ()=>{
+      sidebar.classList.toggle("open");
+      menuBtnChange();//calling the function(optional)
+    });
+  
+    searchBtn.addEventListener("click", ()=>{ // Sidebar open when you click on the search iocn
+      sidebar.classList.toggle("open");
+      menuBtnChange(); //calling the function(optional)
+    });
+  
+    // following are the code to change sidebar button(optional)
+    function menuBtnChange() {
+     if(sidebar.classList.contains("open")){
+       closeBtn.classList.replace("bx-menu", "bx-menu-alt-right");//replacing the iocns class
+     }else {
+       closeBtn.classList.replace("bx-menu-alt-right","bx-menu");//replacing the iocns class
+     }
+    }
+    </script>
+
 {% endif %}
 {% if user.user_type == 2 %}
 
 Hello Placement Officer, {{ user.username|default:'Guest' }}!
 
-<br>
-<a href="/Dashboard">Dashboard</a>
-<br>
-<a href="/stusignup">Student SignUp</a>
-<br>
-<a href="/mentorsignup">Mentor Signup</a>
-<br>
-<a href="/ploffsignup">Placement Officer SignUp</a>
-<br>
-<a href="/companysignup">Company SignUp</a>
-<br>
-<a href="/verifyStu">Verify Users Grouped By there User Type</a>
-<br>
-<a href="/CompanyList">View All Companies With Detail,Update And Delete Button </a>
-<br>
+<div class="sidebar">
+    <div class="logo-details">
+      <i class='bx bxl-c-plus-plus icon'></i>
+        <div class="logo_name">Student Dasboard</div>
+        <i class='bx bx-menu' id="btn" ></i>
+    </div>
+    <ul class="nav-list">
+      <li>
+          <i class='bx bx-search' ></i>
+         <input type="text" placeholder="Search...">
+         <span class="tooltip">Search</span>
+      </li>
+      <li>
+        <a href="/Dashboard">
+          <i class='bx bx-grid-alt'></i>
+          <span class="links_name">Dashboard</span>
+        </a>
+         <span class="tooltip">Dashboard</span>
+      </li>
+      <li>
+       <a href="/stusignup">
+         <i class='bx bx-user' ></i>
+         <span class="links_name">Student Signup</span>
+       </a>
+       <span class="tooltip">Student Signup</span>
+     </li>
+     <li>
+       <a href="/mentorsignup">
+         <i class='bx bx-chat' ></i>
+         <span class="links_name">Mentor Signup</span>
+       </a>
+       <span class="tooltip">Mentor Signup</span>
+     </li>
+     <li>
+       <a href="/ploffsignup">
+         <i class='bx bx-pie-chart-alt-2' ></i>
+         <span class="links_name">Placement Officer signup</span>
+       </a>
+       <span class="tooltip">Placement Officer signup</span>
+     </li>
+     <li>
+     <li>
+            <a href="/companysignup">
+              <i class='bx bx-folder' ></i>
+              <span class="links_name">Company Signup</span>
+            </a>
+            <span class="tooltip">Company Signup</span>
+          </li>
+         <li>
+       <a href="/verifyStu">
+         <i class='bx bx-folder' ></i>
+         <span class="links_name">Verify Users Grouped By there user type</span>
+       </a>
+       <span class="tooltip">Verify Users Grouped By there user type</span>
+     </li>
+     <li>
+        <a href="/CompanyList">
+          <i class='bx bx-folder' ></i>
+          <span class="links_name">View All companies with Details,Update and delete</span>
+        </a>
+        <span class="tooltip">View All companies with Details,Update and delete</span>
+      </li>
+      <li>
+        <a href="/offer">
+          <i class='bx bx-folder' ></i>
+          <span class="links_name">List offers</span>
+        </a>
+        <span class="tooltip">List offers</span>
+      </li>
+      <li>
+        <a href="/Position">
+          <i class='bx bx-folder' ></i>
+          <span class="links_name">View All Position with details</span>
+        </a>
+        <span class="tooltip">View All Position with details</span>
+      </li>
+      <li>
+        <a href="/StudentList">
+          <i class='bx bx-folder' ></i>
+          <span class="links_name">View All students with details</span>
+        </a>
+        <span class="tooltip">View All students with details</span>
+      </li>
+     <li>
+       <a href="/logout">
+         <i class='bx bx-cart-alt' ></i>
+         <span class="links_name">Logout</span>
+       </a>
+       <span class="tooltip">Logout</span>
+     </li>
+     <li class="profile">
+         <div class="profile-details">
+           <img src="profile.jpg" alt="profileImg">
+           <div class="name_job">
+             <div class="name"> {{ user.username|default:'Guest' }}</div>
+             <div class="job">Student</div>
+           </div>
+         </div>
+         <i class='bx bx-log-out' id="log_out" ></i>
+     </li>
+    </ul>
+  </div>
+  <section class="home-section">
+      <div class="text">Dashboard</div>
+  </section>
+  
+  <script>
+    let sidebar = document.querySelector(".sidebar");
+    let closeBtn = document.querySelector("#btn");
+    let searchBtn = document.querySelector(".bx-search");
+  
+    closeBtn.addEventListener("click", ()=>{
+      sidebar.classList.toggle("open");
+      menuBtnChange();//calling the function(optional)
+    });
+  
+    searchBtn.addEventListener("click", ()=>{ // Sidebar open when you click on the search iocn
+      sidebar.classList.toggle("open");
+      menuBtnChange(); //calling the function(optional)
+    });
+  
+    // following are the code to change sidebar button(optional)
+    function menuBtnChange() {
+     if(sidebar.classList.contains("open")){
+       closeBtn.classList.replace("bx-menu", "bx-menu-alt-right");//replacing the iocns class
+     }else {
+       closeBtn.classList.replace("bx-menu-alt-right","bx-menu");//replacing the iocns class
+     }
+    }
+    </script>
 
-<a href="/Offer">List Offers with ,Update And Delete Button </a>
-<br>
-<a href="/Position">View All Positions With Detail, Update And Delete Button </a>
-<br>
-<a href="/StudentList">View All Students With Detail,Update And Delete Button</a>
-<br>
-<a href="/Students">View All Info of Student who Applied for Positions   </a>
-<br>
 {% endif %}
 
 {% endif %}
