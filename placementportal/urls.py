@@ -19,9 +19,11 @@ from django.conf.urls import url,include
 from django.contrib import admin
 from django.urls import path
 from placementapp import views
-
+from django.conf.urls.static import static
+from django.conf import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('',views.dashboard),
     # Student Sign-Up Page
     path('stusignup/',views.Stusignup ,name='usersignup'),
     # Placement Officer Sign-Up Page
@@ -32,7 +34,7 @@ urlpatterns = [
     path('companysignup',views.CompanySignUp),
 
     path("login",views.userlogin,name="userlogin"),
-    path("out",views.userlogout,name="logout"),
+    path("logout",views.userlogout,name="logout"),
     # Update Student Profile Form 
     path('UpdateProfile/',views.StudentUpdateProfile,name="UpdateProfile"),
     #Student Dashboard
@@ -67,6 +69,7 @@ urlpatterns = [
     #return of Stu type
     path('StudentList',views.ListStudentView),
     path('Student/<int:id>',views.StudentDetailView,name='StuDetail'),
+    path('Student/<str:Stuenrollment>',views.StudentDetailView1,name='StuDetail1'),
     path('Student/update/<int:id>',views.UpdateStudent,name='StuUpdate'),
     path('Student/delete/<int:id>',views.DeleteStudent,name='StuDelete'),
     path('CompanyList',views.ListCompany),
@@ -76,4 +79,4 @@ urlpatterns = [
     path('verifyStu',views.VerifyStudentView),
     path('exportcsv/<int:f_id>',views.exportview,name='export'),
 
-]
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

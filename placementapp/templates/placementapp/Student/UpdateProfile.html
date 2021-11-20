@@ -108,6 +108,34 @@
     
       </form>
 </div>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        
+    {% if url %}
+    <a href="{{url}}"> download Resume</a>
+    
+        <div>
+            <object
+              data='{{url}}'
+              type="application/pdf"
+              width="500"
+              height="678"
+            >
+      
+              <iframe
+                src='{{url}}'
+                width="500"
+                height="678"
+              >
+              <p>This browser does not support PDF!</p>
+              </iframe>
+      
+            </object>
+          </div>
+          {% endif %}
+        <input type="submit" value="Login">
+    </form>
 </body>
 </html>
 {% endblock %}

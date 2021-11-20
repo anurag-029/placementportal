@@ -149,13 +149,21 @@ Hello Mentor, {{ user.username|default:'Guest' }}!
        <span class="tooltip">View List of Student</span>
      </li>
      <li>
-       <a href="/Dashboard">
+       <a href="/exportcsv/1">
          <i class='bx bx-pie-chart-alt-2' ></i>
-         <span class="links_name">Export student Data as CSV</span>
+         <span class="links_name">Export Students</span>
        </a>
-       <span class="tooltip">Export student Data as CSV</span>
+       <span class="tooltip">Export Students</span>
      </li>
      <li>
+      <li>
+        <a href="/exportcsv/3">
+          <i class='bx bx-pie-chart-alt-2' ></i>
+          <span class="links_name">Export Applied Data Of Mentor's Students </span>
+        </a>
+        <span class="tooltip">Export Applied Data Of Mentor's Students </span>
+      </li>
+      <li>
        <a href="/verifyStu">
          <i class='bx bx-folder' ></i>
          <span class="links_name">Verify student</span>
@@ -282,7 +290,21 @@ Hello Company, {{ user.username|default:'Guest' }}!
           <i class='bx bx-folder' ></i>
           <span class="links_name">View student who applies</span>
         </a>
-        <span class="tooltip">Assign Created offer</span>
+        <span class="tooltip">View student who applies</span>
+      </li>
+      <li>
+        <a href="/exportcsv/1">
+          <i class='bx bx-folder' ></i>
+          <span class="links_name">Export Students who Applied</span>
+        </a>
+        <span class="tooltip">Export Students who Applied</span>
+      </li>
+      <li>
+        <a href="/exportcsv/3">
+          <i class='bx bx-folder' ></i>
+          <span class="links_name">Export Applied</span>
+        </a>
+        <span class="tooltip">Export Applied</span>
       </li>
      <li>
        <a href="/logout">
@@ -419,6 +441,41 @@ Hello Placement Officer, {{ user.username|default:'Guest' }}!
           <span class="links_name">View All students with details</span>
         </a>
         <span class="tooltip">View All students with details</span>
+      </li>
+      <li>
+        <a href="/applied">
+          <i class='bx bx-folder' ></i>
+          <span class="links_name">View All Info of Student who Applied for Positions</span>
+        </a>
+        <span class="tooltip">View All Info of Student who Applied for Positions</span>
+      </li>
+      <li>
+        <a href="/exportcsv/3">
+          <i class='bx bx-folder' ></i>
+          <span class="links_name">Export Applied Info</span>
+        </a>
+        <span class="tooltip">Export Applied Info</span>
+      </li>
+      <li>
+        <a href="/exportcsv/1">
+          <i class='bx bx-folder' ></i>
+          <span class="links_name">Export Students data </span>
+        </a>
+        <span class="tooltip">Export Students data </span>
+      </li>
+      <li>
+        <a href="/exportcsv/5">
+          <i class='bx bx-folder' ></i>
+          <span class="links_name">Export Company data</span>
+        </a>
+        <span class="tooltip">Export Company data</span>
+      </li>
+      <li>
+        <a href="/exportcsv/4">
+          <i class='bx bx-folder' ></i>
+          <span class="links_name">Export Offers Data</span>
+        </a>
+        <span class="tooltip">Export Offers Data</span>
       </li>
      <li>
        <a href="/logout">
