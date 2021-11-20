@@ -1,7 +1,16 @@
 <!--users/templates/base.html-->
 <!--Navbar-->
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">Navbar</a>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script type="text/javascript" src="Scripts/jquery-2.1.1.min.js"></script> 
+    <script type="text/javascript" src="Scripts/bootstrap.min.js"></script>
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+
+    
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -10,14 +19,14 @@
         {% if user.is_authenticated %}
         
         <li class="nav-item">
-          <a class="nav-link" href="/logout">Logout</a>
+          <a style="padding-right:100px;" class="nav-link" href="/logout">Logout</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/Dashboard">Dashboard</a>
+          <a style="padding-right:100px;" class="nav-link" href="/Dashboard">Dashboard</a>
         </li>
         
         <li class="nav-item">
-          <a class="nav-link" href="#">Welcome, {{user.username}}</a>
+          <a style="padding-left: 950px" class="nav-link" href="#">Welcome, {{user.username}}</a>
         </li>
   
         {% else %}
@@ -30,7 +39,7 @@
       </ul>
     </div>
   </nav>
-<h1>Welcome to Placement Portal</h1>
+<h1 style="text-align:center;">Welcome to Placement Portal</h1>
 <hr>
 {% block content %}
 {% endblock %}

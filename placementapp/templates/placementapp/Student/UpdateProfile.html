@@ -7,13 +7,107 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student form</title>
+    
 </head>
 <body>
-    <form method="POST">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" value="Login">
-    </form>
+  <div style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);   padding: 16px;
+  text-align: center;
+  background-color: #f1f1f1;
+">
+    <form>  
+      <div style="padding-left: 600px;"> 
+    <div class="form-group" >
+        <div class="col-3">
+      <label for="exampleFormControlSelect1">First name</label>
+      <input style="width: 280px;" autofocus class="form-control" type="text" name="username" placeholder="First name">
+    </div>
+    </div>
+    <div class="form-group" >
+        <div class="col-3">
+      <label for="exampleFormControlSelect1">Last name</label>
+      <input style="width: 280px;" autofocus class="form-control" type="text" name="username" placeholder="Last name">
+    </div>
+    </div>
+    <div class="form-group">
+        <div class="col-3">
+      <label for="exampleFormControlSelect1">Gender</label>
+      <select style="width: 280px;" class="form-control" id="exampleFormControlSelect1">
+        <option>Male</option>
+        <option>Female</option>
+        <option>Others</option>
+        
+      </select>
+    </div>
+    </div>
+    <div class="form-group">
+        <div class="col-3">
+        
+          <label for="exampleFormControlInput1">Email address</label>
+          <input style="width: 280px;" type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-3">
+        
+          <label for="exampleFormControlInput1">Mobile Number</label>
+          <input style="width: 280px;" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Number">
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-3">
+        
+          <label for="exampleFormControlInput1">10th Score </label>
+          <input style="width: 280px;"  type="text" class="form-control" id="exampleFormControlInput1" placeholder="Marks">
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-3">
+        
+          <label for="exampleFormControlInput1">12th Score</label>
+          <input style="width: 280px;" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Marksr">
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-3">
+        
+          <label for="exampleFormControlInput1">JEE Score</label>
+          <input style="width: 280px;" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Score">
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-3">
+      <label for="exampleFormControlSelect1">Branch</label>
+      <select style="width: 280px;" class="form-control" id="exampleFormControlSelect1">
+        <option>Computer Science</option>
+        <option>Information technology</option>
+        <option>EC</option>
+        <option>Mechanical</option>
+        <option>Civil</option>
+      </select>
+    </div>
+    </div>
+    </div>
+    <div class="form-group">
+        <label for="exampleFormControlTextarea1">Aim</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="exampleFormControlTextarea1">Objective</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="exampleFormControlTextarea1">Mission</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+      </div>
+
+    <div class="form-group">
+      <label for="exampleFormControlTextarea1">Vision</label>
+          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+        </div>
+    
+      </form>
+</div>
 </body>
 </html>
 {% endblock %}

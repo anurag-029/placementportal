@@ -9,6 +9,8 @@
     <title>Position form</title>
 </head>
 <body>
+    <div class="container p-4 text-center" style="max-width: 600px;">
+
     <form method="POST">
         {% csrf_token %}
         {{ form.as_p }}
@@ -16,6 +18,7 @@
         
         <input type="submit" value="Create">
     </form>
+    </div>
 </body>
 </html>
 {% endblock %}

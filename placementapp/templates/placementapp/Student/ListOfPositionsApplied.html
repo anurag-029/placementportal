@@ -10,7 +10,10 @@
 </head>
 <body>
     {% for data in dataset %}
-<dl>  
+<dl style="box-shadow: 0 4px 8px 0 rgba(211,211,211,0.2);
+transition: 0.3s; background-color: lightgray;
+border-radius: 5px; width: 400px; margin-left: 20px; float: left; height: 500px;text-align: center; padding-top: 20px;"
+>  
     <dt>Position</dt>  
     <dd>{{data.Position}}</dd>  
     <dt>Time</dt>  
@@ -20,13 +23,14 @@
     <dt>Final Offer</dt>  
     <dd>{{data.FinalOffer}}</dd>
     <dt>Branchs</dt> 
-  </dl> 
-  {% for branchds in data.Position.branch.all %}
+    {% for branchds in data.Position.branch.all %}
 
 {{branchds}}
 <br>
 {% endfor %}
-<br><hr>
+  </dl> 
+  
+
 {% endfor %}
 </body>
 </html>
