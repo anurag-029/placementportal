@@ -9,12 +9,17 @@
     <title> form</title>
 </head>
 <body>
+    <div style="width: 450px ;text-align:center;font-size: large;box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    border-radius: 5px;margin-left: 550px;padding-top: 20px;
+  margin-top: 30px; background-color: lightgray;">
     <form method="post">
     {% csrf_token %}
     Click YES to confirm
     <input type = "submit" value="YES">
     <a href='/dashboard/'>Cancel</a>
 </form>
+</div>
 </body>
 </html>
 {% endblock %}

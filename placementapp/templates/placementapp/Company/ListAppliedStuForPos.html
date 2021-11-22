@@ -9,12 +9,19 @@
     <title>Student form</title>
 </head>
 <body>
+    <div style="width: 500px ;text-align:center;margin-left: 530px;font-size: large;box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    border-radius: 5px;
+  ">
     {% for data in dataset %}
 {{data}}
-
-<a href="{% url 'StuDetail' data.Student.user.id  %}">Detail</a>
-<hr>
+<br>
+<form method="get" action="{% url 'StuDetail' data.Student.user.id  %}">
+    <input type="submit" value="Details" ></form>
+<!--<a href="{% url 'StuDetail' data.Student.user.id  %}">Detail</a>
+--> <hr>
 {% endfor %}
+</div>
 </body>
 </html>
 {% endblock %}

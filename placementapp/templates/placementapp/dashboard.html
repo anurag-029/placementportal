@@ -3,13 +3,6 @@
 {% load static %}
 
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Dashboard</title>
-</head>
 
 {% block content %}
 {% if user.is_authenticated %}
@@ -84,9 +77,26 @@
   </div>
   <section class="home-section">
       <div class="text">Dashboard</div>
+
+      {% for key, value in data.items %}
+     
+  <li>{{ key }} : {{ value }}</li>
+{% endfor %}
+<div style=" width: 100px;
+height: 100px;
+background: red;
+-moz-border-radius: 50px;
+-webkit-border-radius: 50px;
+border-radius: 50px;
+float:left;
+margin:5px;"><span style=" line-height: 100px;
+  color:white;
+  margin-left:30px;
+  font-size:25px;" >200</span></div>
   </section>
   
   <script>
+    
     let sidebar = document.querySelector(".sidebar");
     let closeBtn = document.querySelector("#btn");
     let searchBtn = document.querySelector(".bx-search");
@@ -109,6 +119,17 @@
        closeBtn.classList.replace("bx-menu-alt-right","bx-menu");//replacing the iocns class
      }
     }
+    $('.count').each(function () {
+    $(this).prop('Counter',0).animate({
+        Counter: $(this).text()
+    }, {
+        duration: 4000,
+        easing: 'swing',
+        step: function (now) {
+            $(this).text(Math.ceil(now));
+        }
+    });
+});
     </script>
 {% endif %}
 {% if user.user_type == 4 %}
@@ -191,6 +212,10 @@ Hello Mentor, {{ user.username|default:'Guest' }}!
   </div>
   <section class="home-section">
       <div class="text">Dashboard</div>
+      {% for key, value in data.items %}
+  <li>{{ key }} : {{ value }}</li>
+{% endfor %}
+
   </section>
   
   <script>
@@ -234,13 +259,6 @@ Hello Company, {{ user.username|default:'Guest' }}!
           <i class='bx bx-search' ></i>
          <input type="text" placeholder="Search...">
          <span class="tooltip">Search</span>
-      </li>
-      <li>
-        <a href="/Dashboard">
-          <i class='bx bx-grid-alt'></i>
-          <span class="links_name">Dashboard</span>
-        </a>
-         <span class="tooltip">Dashboard</span>
       </li>
       <li>
        <a href="/Position/create">
@@ -327,6 +345,10 @@ Hello Company, {{ user.username|default:'Guest' }}!
   </div>
   <section class="home-section">
       <div class="text">Dashboard</div>
+      {% for key, value in data.items %}
+  <li>{{ key }} : {{ value }}</li>
+{% endfor %}
+
   </section>
   
   <script>
@@ -370,13 +392,6 @@ Hello Placement Officer, {{ user.username|default:'Guest' }}!
           <i class='bx bx-search' ></i>
          <input type="text" placeholder="Search...">
          <span class="tooltip">Search</span>
-      </li>
-      <li>
-        <a href="/Dashboard">
-          <i class='bx bx-grid-alt'></i>
-          <span class="links_name">Dashboard</span>
-        </a>
-         <span class="tooltip">Dashboard</span>
       </li>
       <li>
        <a href="/stusignup">
@@ -498,6 +513,10 @@ Hello Placement Officer, {{ user.username|default:'Guest' }}!
   </div>
   <section class="home-section">
       <div class="text">Dashboard</div>
+      {% for key, value in data.items %}
+  <li>{{ key }} : {{ value }}</li>
+{% endfor %}
+
   </section>
   
   <script>

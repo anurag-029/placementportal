@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
+{%load static%}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,16 +10,36 @@
     <title>Assign  form</title>
 </head>
 <body>
+    <div style="
+background-image: url('{% static "image/aa.jpeg"%}');
+background-repeat:no-repeat;background-size:100% 100%;height:700px;padding-top:150px">
+    
+    
     <form method="POST">
+       
         {% csrf_token %}
         {{ formset.management_form }}
-        <table>
+
+      
         {% for form in formset %}
+        
+        <div style="width: 450px ;text-align:center;font-size: large;box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    border-radius: 5px;height: 500px;float:left;margin-left: 50px;padding-top: 20px;
+  margin-top: 30px; background-color: limegreen;">
+  
         {{form}}
+    </div>
         {% endfor %}
-    </table>
-        <input type="submit" value="Assign">
+    
+    <br>
+        <input type="submit" value="Assign" style="float: right; margin-top: 550px;margin-right: 550px;margin-bottom: 20px
+        ;height: 40px;width: 80px" >
+        <br><br>
     </form>
+    </div>
+    <div style="height: 100px;"></div>
+</div>
 </body>
 </html>
 {% endblock %}

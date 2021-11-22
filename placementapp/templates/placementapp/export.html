@@ -7,11 +7,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student Dashboard</title>
+    <div style="width: 500px ;text-align:center;margin-left: 530px;font-size: large;box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    border-radius: 5px;
+">   
+<div style="background-color: lightsteelblue; padding-top: 5px;">
+       <b> <h3 > Choose Fields to Add in CSV File </h3></b>
+        <hr>
+        </div>
     <form action="" method="POST">
     {% csrf_token %}
     {{form.as_p}}
-    <input type="submit" value="Add">
+    <input type="submit" value="Export">
+    <br>
+    <br>
     </form>
+    </div>
 </head>
 
 {% endblock %}

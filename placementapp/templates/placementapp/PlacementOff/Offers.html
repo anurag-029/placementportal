@@ -1,3 +1,5 @@
+{% extends 'base.html' %}
+{% block content %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,15 +9,36 @@
     <title>Current Offer</title>
 </head>
 <body>
+    <table style="border:1px solid white;
+    border-collapse: collapse;font-size: 25px;margin-left: 450px;text-align: center;"
+  >
+        <th style="border:1px solid white;width: 200px;text-align: center;
+        border-collapse: collapse;background-color: #96D4D4;height: 40px;
+" > Position </th><th  style="border:1px solid white;width: 200px;text-align: center;
+    border-collapse: collapse;background-color: #96D4D4;height: 40px;
+"> Time </th><th style="border:1px solid white;width: 200px;text-align: center;
+    border-collapse: collapse;background-color: #96D4D4;height: 40px;
+">Offer</th>
     {% for data in dataset %}
-<dl>  
-    <dt>Position</dt>  
-    <dd>{{data.Position}}</dd>  
-    <dt>Time</dt>  
-    <dd>{{data.Status}}</dd>  
-   <dt>Offer</dt>  
-   <dd>{{data.FinalOffer}}</dd>  
-  </dl> 
+    
+<tr style="border:1px solid white;
+    border-collapse: collapse;">
+        <td style="border:1px solid white; width: 200px;text-align: center;
+        border-collapse: collapse;background-color: #96D4D4;height: 30px;
+">{{data.Position}}
+</td>
+<td style="border:1px solid white;
+border-collapse: collapse;background-color: #96D4D4;width: 200px;text-align: center;height: 30px;
+">{{data.Status}}
+</td>
+<td style="border:1px solid white;
+border-collapse: collapse;background-color: #96D4D4;width: 200px;text-align: center;height: 30px;
+">{{data.FinalOffer}}
+</td>
+</tr>
+    
   {% endfor %}
+    </table>
 </body>
 </html>
+{% endblock %}

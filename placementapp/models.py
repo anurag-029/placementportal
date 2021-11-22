@@ -119,7 +119,7 @@ class Student(models.Model):
     ('FEMALE','FEMALE'),
     ('OTHERS','OTHERS'),
     ]
-    gender=models.CharField(choices=Gender_Choices,null=True,max_length=10,)
+    gender=models.CharField(choices=Gender_Choices,blank=True,null=True,max_length=10,)
     Email=models.EmailField(null=False,blank=False)
     Mobile_No=models.PositiveBigIntegerField(null=False,blank=False)
     School10=models.ForeignKey(to=School,null=True,on_delete=models.SET_NULL,related_name='SchoolX')

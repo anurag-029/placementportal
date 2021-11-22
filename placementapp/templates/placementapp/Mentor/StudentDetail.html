@@ -1,3 +1,5 @@
+{% extends 'base.html' %}
+{% block content %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,22 +9,29 @@
     <title>Document</title>
 </head>
 <body>
-    {% if dataset is not None %}
+    <div style="width: 450px ;text-align:center;font-size: large;box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    border-radius: 5px;margin-left: 550px;padding-top: 20px;
+  margin-top: 30px; background-color: lightgray;">
+   
 
-    {{dataset.enrollment_no}}
-    <br>
-    {{dataset.School10}}
-    <br>
-    {{dataset.Branch}}
-    <br>
+    {% if dataset is not None %}
+    <b>Enrollment Number : </b>{{dataset.enrollment_no}}<br>
+    <b>School : </b>{{dataset.School10}}<br>
+    <b>Branch : </b>{{dataset.Branch}}<br>
+
+    
     {% if dataset.ResumeURL %}
     <a href="{{dataset.ResumeURL}}"> download Resume</a>
     {% endif %}
     
     {% for pos in dataset.AppliedPositions.all %}
     {{pos}}
+    <form action="/StudentList"><input type="submit" value="Back"></form>
     <br>
     {% endfor %}
     {% endif %}
+    </div>
 </body>
 </html>
+{% endblock %}

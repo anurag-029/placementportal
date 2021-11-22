@@ -9,13 +9,20 @@
     <title>View Positions </title>
 </head>
 <body>
+    <div style="width: 450px ;text-align:center;font-size: large;box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    border-radius: 5px;margin-left: 500px;padding-top: 20px;
+  margin-top: 30px; background-color: lightgray;">
     {% for Position in dataset %}
-{{Position}}
-<a href="{% url 'UpdatePosition' Position.id %}">Update This Position</a>
-<a href="{% url 'DeletePosition' Position.id %}">Delete This Position</a>
+<b> Position : </b>{{Position}}
+<div>
+<form action="{% url 'UpdatePosition' Position.id %}" style=" margin-top: 20px;margin-left: 0px;"><input type="submit" value="Update"></form>
+<form action="{% url 'DeletePosition' Position.id %}" style="margin-top: 20px;margin-left: 10px;"><input type="submit" value="DeletePosition"></form>
+</div>
 
 <hr>
 {% endfor %}
+    </div>
 </body>
 </html>
 {% endblock %}

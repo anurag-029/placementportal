@@ -9,18 +9,29 @@
     <title>Assign  form</title>
 </head>
 <body>
+    
     <form method="POST">
         {% csrf_token %}
         {{ formset.management_form }}
-        <table>
-        {% for form in formset %}
-        {{form}}
         
+        {% for form in formset %}
+        
+        <div style="width: 250px ;text-align:center;font-size: large;box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    border-radius: 5px;height: 200px;float:left;margin-left: 50px;padding-top: 20px;
+  margin-top: 30px; background-color: limegreen;">
+        
+
+        {{form}}
+     
         <a href="{% url 'StuDetail1' form.username.value %}">Student Detail</a>
+        <br>
+        <input type="submit" value="Assign">
+        </div>
         
         {% endfor %}
-    </table>
-        <input type="submit" value="Assign">
+    
+       
     </form>
 </body>
 </html>

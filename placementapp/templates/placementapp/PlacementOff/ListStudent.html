@@ -9,18 +9,25 @@
     <title>Student form</title>
 </head>
 <body>
+    <div style="width: 450px ;text-align:center;font-size: large;box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    border-radius: 5px;margin-left: 500px;padding-top: 20px;
+  margin-top: 30px; background-color: lightgray;">
     {% for data in dataset %}
-{{data}}
-{{data.Mobile_No}}
-{{data.user}}
-{{data.user.id}}
-<a href="{% url 'StuDetail' data.user.id  %}">Detail</a>
-<a href="{% url 'StuUpdate' data.user.id %}">Update</a>
-<a href="{% url 'StuDelete' data.user.id%}">Delete</a>
+<b> Enrollment Number : </b>{{data}} <br>
+<b> Mobile Number : </b>{{data.Mobile_No}}<br>
+<b> Name Number : </b>{{data.user}}<br>
+<b> ID Number : </b>{{data.user.id}}<br>
+<div style="display: inline-block;margin-top: 10px;">
+<div style="float: left;"><form action="{% url 'StuDetail' data.user.id  %}" ><input type="submit" value="Detail"></form> </div>
 
+<div style="float: left;margin-left: 10px;"> <form action="{% url 'StuUpdate' data.user.id %}"><input type="submit" value="Update"></form></div>
+<div style="float: left;margin-left: 10px;"> <form action="{% url 'StuDelete' data.user.id%}" ><input type="submit" value="Delete"></form></div>
 
+</div>
 <hr>
 {% endfor %}
+    </div>
 </body>
 </html>
 {% endblock %}

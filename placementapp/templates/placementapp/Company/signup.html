@@ -9,18 +9,20 @@
     <title>SignUp</title>
 </head>
 <body>
-<<<<<<< HEAD
+    <div style="width: 600px ;text-align:center;margin-left: 500px;font-size: large;box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    border-radius: 5px;
+  ">
     <div class="container p-4 text-center" style="max-width: 600px;">
     <form action="" method="post">
-=======
-    <form action="" method="POST">
->>>>>>> dfaf340fc00964d6fb93e2c140eb5f97dd1b7c3b
         {% csrf_token %}
         {{form.as_p}} 
         {{form2.as_p}}
         <input type="submit" value="submit">
     </form>
 </div>
+    </div>
 </body>
+
 </html>
 {% endblock %}

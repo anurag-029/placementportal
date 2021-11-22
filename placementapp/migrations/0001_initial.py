@@ -19,7 +19,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='User',
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('password', models.CharField(max_length=128, verbose_name='password')),
                 ('last_login', models.DateTimeField(blank=True, null=True, verbose_name='last login')),
                 ('is_superuser', models.BooleanField(default=False, help_text='Designates that this user has all permissions without explicitly assigning them.', verbose_name='superuser status')),
@@ -47,18 +47,14 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Branch',
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('Branch_Name', models.CharField(max_length=40)),
             ],
         ),
         migrations.CreateModel(
             name='BranchDS',
             fields=[
-<<<<<<< HEAD
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-=======
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
->>>>>>> dfaf340fc00964d6fb93e2c140eb5f97dd1b7c3b
                 ('Start_year', models.PositiveSmallIntegerField()),
                 ('branch', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='placementapp.branch')),
             ],
@@ -66,7 +62,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Degree',
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('Degree_Name', models.CharField(max_length=40)),
                 ('Degree_Duration', models.DecimalField(decimal_places=1, max_digits=2)),
                 ('Total_Sem', models.PositiveIntegerField(blank=True, null=True)),
@@ -76,7 +72,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='PlacementCell',
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('University', models.CharField(default='MediCaps University', max_length=40)),
                 ('phone_no', models.PositiveBigIntegerField(blank=True, null=True)),
                 ('email', models.EmailField(max_length=254)),
@@ -85,7 +81,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='School',
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('Name', models.CharField(max_length=60)),
                 ('Location_Name', models.CharField(max_length=40)),
                 ('Board', models.CharField(max_length=50)),
@@ -119,11 +115,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Position',
             fields=[
-<<<<<<< HEAD
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-=======
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
->>>>>>> dfaf340fc00964d6fb93e2c140eb5f97dd1b7c3b
                 ('Name', models.CharField(max_length=100)),
                 ('minCTC', models.SmallIntegerField(verbose_name='Minimum CTC in Lakhs')),
                 ('maxCTC', models.SmallIntegerField(verbose_name='Maximum CTC in Lakhs')),
@@ -131,11 +123,8 @@ class Migration(migrations.Migration):
                 ('minScore10', models.DecimalField(decimal_places=2, default=0.0, max_digits=4)),
                 ('minScore12', models.DecimalField(decimal_places=2, default=0.0, max_digits=4)),
                 ('minJeePercentile', models.DecimalField(decimal_places=2, default=0.0, max_digits=4)),
-<<<<<<< HEAD
-=======
                 ('Time', models.DateTimeField(blank=True, null=True, verbose_name='Apply By')),
                 ('visible', models.BooleanField(default=False, verbose_name='Visible to Student')),
->>>>>>> dfaf340fc00964d6fb93e2c140eb5f97dd1b7c3b
                 ('branch', models.ManyToManyField(to='placementapp.BranchDS')),
                 ('Company', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='placementapp.company')),
             ],
@@ -143,7 +132,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Offers',
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('Description', models.TextField(verbose_name='Extra Info About offer')),
                 ('FinalCTC', models.SmallIntegerField()),
                 ('Position', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='placementapp.position')),
@@ -162,11 +151,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Applied',
             fields=[
-<<<<<<< HEAD
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-=======
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
->>>>>>> dfaf340fc00964d6fb93e2c140eb5f97dd1b7c3b
                 ('Status', models.CharField(choices=[('Selected', 'Selected'), ('EligibleForNextRound', 'EligibleForNextRound'), ('Rejected', 'Not Eligible For Next Round'), ('Under Evaluation', 'Under Evaluation')], default='UnderEvaluation', max_length=30)),
                 ('Time', models.DateTimeField(auto_now_add=True, verbose_name='applied at')),
                 ('Description', models.TextField(blank=True, null=True, verbose_name='Info About Next Roumd')),
@@ -220,7 +205,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='MessageP2S',
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('TimeStamps', models.DateTimeField()),
                 ('Body', models.TextField()),
                 ('type', models.CharField(blank=True, max_length=40, null=True)),
@@ -234,7 +219,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='MessageP2C',
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('TimeStamps', models.DateTimeField()),
                 ('Body', models.TextField()),
                 ('sender', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='placementapp.placementcell')),
@@ -247,7 +232,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='MessageC2P',
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('TimeStamps', models.DateTimeField()),
                 ('Body', models.TextField()),
                 ('receivers', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='placementapp.placementcell')),

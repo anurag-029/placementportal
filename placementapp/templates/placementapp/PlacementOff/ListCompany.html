@@ -9,13 +9,33 @@
     <title>View Positions </title>
 </head>
 <body>
+    <table style="border:1px solid white;
+    border-collapse: collapse;font-size: 25px;margin-left: 500px;text-align: center;"
+  >
+        <th style="border:1px solid white;
+        border-collapse: collapse;background-color: #96D4D4;
+" > Company Name </th><th  style="border:1px solid white;
+    border-collapse: collapse;background-color: #96D4D4;
+"> Update </th><th style="border:1px solid white;
+    border-collapse: collapse;background-color: #96D4D4;
+">Delete</th>
     {% for company in dataset %}
-{{company}}
-<a href="{% url 'UpdateCompany' company.user.id %}">Update This Company</a>
-<a href="{% url 'DeleteCompany' company.user.id %}">Delete This Company</a>
+    <tr style="border:1px solid white;
+    border-collapse: collapse;">
+        <td style="border:1px solid white;
+        border-collapse: collapse;background-color: #96D4D4;
+">
+{{company}} </td> <td style="border:1px solid white;
+border-collapse: collapse;background-color: #96D4D4;
+">
+<a href="{% url 'UpdateCompany' company.user.id %}">Update </a></td>
+<td style="border:1px solid white;
+border-collapse: collapse;background-color: #96D4D4;
+"><a href="{% url 'DeleteCompany' company.user.id %}">Delete </a></td>
+</tr>
 
-<hr>
 {% endfor %}
+</table>
 </body>
 </html>
 {% endblock %}

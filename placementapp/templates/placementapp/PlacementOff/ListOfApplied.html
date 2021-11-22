@@ -9,25 +9,26 @@
     <title>Student Applied </title>
 </head>
 <body>
+    <div style="width: 450px ;text-align:center;font-size: large;box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    border-radius: 5px;margin-left: 550px;padding-top: 20px;
+  margin-top: 30px; background-color: lightgray;">
     {% for data in dataset %}
-<dl>  
-    <dt>Position</dt>  
-    <dd>{{data.Position}}</dd>  
-    <dt>Time</dt>  
-    <dd>{{data.Time}}</dd>  
-   <dt>Status</dt>  
-   <dd>{{data.Status}}</dd>  
-    <dt>Final Offer</dt>  
-    <dd>{{data.FinalOffer}}</dd>
-  </dl> 
-
-  <a href="{% url 'StuDetail' data.Student.user.id  %}">Detail</a>
-  <a href="{% url 'UpdateApplied' data.id %}">Update</a>
-  <a href="{% url 'DeleteApplied' data.id%}">Delete</a>
-<br>
+    <b>Position : </b>{{data.Position}}<br>
+    <b>Time : </b>{{data.Time}}<br>
+    <b>Status : </b>{{data.Status}}<br>
+    <b>Final Offer : </b>{{data.FinalOffer}}<br>
+    <div style="display: inline-block;margin-top: 10px;">
+        <div style="float: left;"><form action="{% url 'StuDetail' data.Student.user.id  %}" ><input type="submit" value="Detail"></form> </div>
+        
+        <div style="float: left;margin-left: 10px;"> <form action="{% url 'UpdateApplied' data.id %}"><input type="submit" value="Update"></form></div>
+        <div style="float: left;margin-left: 10px;"> <form action="{% url 'DeleteApplied' data.id%}" ><input type="submit" value="Delete"></form></div>
+        
+        </div>
 
 <br><hr>
 {% endfor %}
+    </div>
 </body>
 </html>
 {% endblock %}
