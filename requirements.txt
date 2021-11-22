@@ -68,4 +68,8 @@ urllib3==1.25.9
 virtualenv==20.1.0
 whitenoise==5.3.0
 wrapt==1.13.3
+<<<<<<< HEAD
 zipp==3.1.0
+=======
+zipp==3.1.0
+>>>>>>> dfaf340fc00964d6fb93e2c140eb5f97dd1b7c3b
